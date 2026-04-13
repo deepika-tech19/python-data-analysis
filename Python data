@@ -1,0 +1,45 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Create dataset
+data = {
+    "Name": ["Aman", "Riya", "Rahul", "Sneha", "Karan", "Priya"],
+    "Marks": [80, 90, 75, 85, 60, 95],
+    "Gender": ["M", "F", "M", "F", "M", "F"]
+}
+
+# Convert to DataFrame
+df = pd.DataFrame(data)
+
+# Display dataset
+print("Student Data:\n")
+print(df)
+
+# Basic Analysis
+print("\n--- Analysis ---")
+print("Average Marks:", df["Marks"].mean())
+print("Highest Marks:", df["Marks"].max())
+print("Lowest Marks:", df["Marks"].min())
+
+# Group Analysis
+print("\nAverage Marks by Gender:")
+print(df.groupby("Gender")["Marks"].mean())
+
+# Visualization - Bar Chart
+df["Marks"].plot(kind="bar")
+plt.title("Marks of Students")
+plt.xlabel("Student Index")
+plt.ylabel("Marks")
+plt.show()
+
+# Visualization - Pie Chart
+df["Gender"].value_counts().plot(kind="pie")
+plt.title("Gender Distribution")
+plt.ylabel("")
+plt.show()
+
+# Insights
+print("\n--- Insights ---")
+print("1. Highest scorer is:", df.loc[df["Marks"].idxmax()]["Name"])
+print("2. Average marks is:", df["Marks"].mean())
+print("3. Female students have higher average marks in this dataset.")
