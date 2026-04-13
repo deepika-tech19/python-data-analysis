@@ -11,3 +11,5 @@ This project analyzes student data using Python.
 - Python
 - Pandas
 - Matplotlib
+# Author
+Deepika
